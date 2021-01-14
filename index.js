@@ -32,6 +32,14 @@ mongoose
   })
   .then((recipe) => {
     console.log('Just added:', recipe.title);
+    const someRecipes = require('./data.json');
+    return Recipe.create(someRecipes);
+  })
+  .then((recipes) => {
+    console.log(`Just added ${recipes.length} recipes:`);
+    for (const recipe of recipes) {
+      console.log(recipe.title);
+    }
 
     console.log('Closing connection');
     return mongoose.disconnect();
