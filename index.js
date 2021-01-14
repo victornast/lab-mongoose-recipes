@@ -41,6 +41,14 @@ mongoose
       console.log(recipe.title);
     }
 
+    return Recipe.findOneAndUpdate(
+      { title: 'Rigatoni alla Genovese' },
+      { duration: 100 },
+      { useFindAndModify: false }
+    );
+  })
+  .then((updatedRecipe) => {
+    console.log('Just updated:', updatedRecipe.title);
     console.log('Closing connection');
     return mongoose.disconnect();
   })
