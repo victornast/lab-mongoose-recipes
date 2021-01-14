@@ -55,6 +55,7 @@ mongoose
   .then((deletedRecipe) => {
     console.log('Deleted recipe:', deletedRecipe.title);
 
+    // Closing the Database was done before all other iterations
     console.log('Closing connection');
     return mongoose.disconnect();
   })
