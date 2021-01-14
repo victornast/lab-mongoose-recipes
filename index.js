@@ -49,6 +49,12 @@ mongoose
   })
   .then((updatedRecipe) => {
     console.log('Just updated:', updatedRecipe.title);
+
+    return Recipe.findOneAndDelete({ title: 'Carrot Cake' });
+  })
+  .then((deletedRecipe) => {
+    console.log('Deleted recipe:', deletedRecipe.title);
+
     console.log('Closing connection');
     return mongoose.disconnect();
   })
